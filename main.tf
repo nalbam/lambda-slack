@@ -10,6 +10,7 @@ terraform {
     bucket = "terraform-nalbam-seoul"
     key = "demo-slack.tfstate"
   }
+  required_version = "> 0.11.0"
 }
 
 module "demo-slack" {
