@@ -8,18 +8,18 @@ terraform {
   backend "s3" {
     region = "ap-northeast-2"
     bucket = "terraform-nalbam-seoul"
-    key = "demo-slack.tfstate"
+    key = "dev-sns-slack.tfstate"
   }
   required_version = "> 0.11.0"
 }
 
-module "demo-slack" {
+module "dev-sns-slack" {
   source = "git::https://github.com/nalbam/terraform-aws-lambda-sns.git"
   region = "${var.region}"
 
   name        = "${var.name}"
   stage       = "${var.stage}"
-  description = "sns > lambda > ${var.name}"
+  description = "sns > lambda > slack"
   runtime     = "nodejs8.10"
   handler     = "index.handler"
   memory_size = 512

@@ -3,7 +3,7 @@ variable region {
 }
 
 variable name {
-  default = "slack"
+  default = "sns-slack"
 }
 
 variable stage {
