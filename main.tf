@@ -1,5 +1,18 @@
 # Terraform Main
 
+terraform {
+  backend "s3" {
+    region = "ap-northeast-2"
+    bucket = "terraform-nalbam-seoul"
+    key    = "dev-sns-slack.tfstate"
+  }
+  required_version = ">= 0.12"
+}
+
+provider "aws" {
+  region = var.region
+}
+
 module "dev-lambda" {
   source = "git::https://github.com/nalbam/terraform-aws-lambda-sns.git"
   region = var.region
